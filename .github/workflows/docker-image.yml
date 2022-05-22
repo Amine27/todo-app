@@ -78,9 +78,9 @@ jobs:
         with:
           name: app
           path: backend/build/libs
-      #- name: Deploying Backend...
-        #run: docker login -u _ -p ${{ secrets.HEROKU_API_KEY }} registry.heroku.com;
-             #docker build --file=backend/backend.dockerfile --rm=true -t registry.heroku.com/${{ env.APP_NAME_BACKEND }}/web .;
-             #docker push registry.heroku.com/${{ env.APP_NAME_BACKEND }}/web;
-             #docker run -e HEROKU_API_KEY=${{ secrets.HEROKU_API_KEY }} wingrunr21/alpine-heroku-cli:latest container:release web -a ${{ env.APP_NAME_BACKEND }};
-             #echo "Backend Deployment Complete!"
+      - name: Deploying Backend...
+        run: docker login -u _ -p ${{ secrets.HEROKU_API_KEY }} registry.heroku.com;
+             docker build --file=backend/backend.dockerfile --rm=true -t registry.heroku.com/${{ env.APP_NAME_BACKEND }}/web .;
+             docker push registry.heroku.com/${{ env.APP_NAME_BACKEND }}/web;
+             docker run -e HEROKU_API_KEY=${{ secrets.HEROKU_API_KEY }} wingrunr21/alpine-heroku-cli:latest container:release web -a ${{ env.APP_NAME_BACKEND }};
+             echo "Backend Deployment Complete!"
