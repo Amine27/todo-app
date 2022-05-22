@@ -46,6 +46,7 @@ jobs:
           arguments: build
           gradle-version: 6.9
           cache-disabled: true
+          gradle-executable: ${{ github.workspace }}/backend/.gradle
       - uses: actions/upload-artifact@v3
         with:
           name: Package
