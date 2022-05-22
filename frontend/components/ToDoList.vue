@@ -53,6 +53,7 @@ export default {
       width: 250px;
       border: none;
       padding-left: 10px;
+      margin-top: 0px;
       font-family: "Quicksand", "Source Sans Pro", -apple-system,
         BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
         sans-serif;
