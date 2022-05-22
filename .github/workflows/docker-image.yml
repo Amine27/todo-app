@@ -45,6 +45,7 @@ jobs:
         with:
           arguments: build
           gradle-version: 6.9
+          cache-disabled: true
       - uses: actions/upload-artifact@v3
         with:
           name: Package
