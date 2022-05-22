@@ -38,12 +38,13 @@ jobs:
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+      - name: Cd
+        run : cd ./backend
       - name: Build with Gradle
         uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
           arguments: build
           gradle-version: 6.9
-          build-root-directory: $GRADLE_USER_HOME
       - uses: actions/upload-artifact@v3
         with:
           name: Package
