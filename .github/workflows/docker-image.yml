@@ -9,7 +9,7 @@ on:
 env:
   APP_NAME_FRONTEND: ic-fe-2
   APP_NAME_BACKEND: ic-be-2
-  GRADLE_USER_HOME: ${{ github.workspace }}/backend/.gradle
+  #GRADLE_USER_HOME: ${{ github.workspace }}/backend
 
 jobs:
 
@@ -44,7 +44,7 @@ jobs:
           arguments: build
           gradle-version: 6.9
           cache-disabled: true
-          build-root-directory: backend/.gradle
+          build-root-directory: backend/
       - uses: actions/upload-artifact@v3
         with:
           name: Package
