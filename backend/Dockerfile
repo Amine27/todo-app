@@ -23,8 +23,7 @@ RUN mkdir -p /app
 # The /app directory should act as the main application directory
 WORKDIR /app
 
-# Copy from previous build step to the current directory of our docker image (/app)
-#COPY backend/build/libs/*.jar ./app.jar
+# Copy from previous build step to the current docker image
 COPY --from=BUILD_STAGE /app/build/libs/*.jar ./app.jar
 
 # Expose $PORT on container.
