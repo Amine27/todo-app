@@ -1,5 +1,5 @@
 # Build stage
-FROM gradle:jdk11-alpine AS BUILD
+FROM gradle:jdk11-alpine AS BUILD_STAGE
 
 # Create an application directory
 RUN mkdir -p /app
@@ -14,8 +14,6 @@ COPY ./backend .
 RUN gradle build
 
 # Package stage
-
-# We don't want to start from scratch.
 # That is why we tell node here to use the openjdk image with java 11 as base.
 FROM openjdk:11.0.13
 
@@ -25,8 +23,9 @@ RUN mkdir -p /app
 # The /app directory should act as the main application directory
 WORKDIR /app
 
-# Copy our project directory (locally) in the current directory of our docker image (/app)
-COPY backend/build/libs/*.jar ./app.jar
+# Copy from previous build step to the current directory of our docker image (/app)
+#COPY backend/build/libs/*.jar ./app.jar
+COPY --from=BUILD_STAGE /app/backend/build/libs/*.jar ./app.jar
 
 # Expose $PORT on container.
 # We use a varibale here as the port is something that can differ on the environment.
