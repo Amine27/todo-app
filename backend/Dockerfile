@@ -27,7 +27,7 @@ WORKDIR /app
 COPY --from=BUILD_STAGE /app/build/libs/*.jar ./app.jar
 
 # Expose port on container.
-EXPOSE 80
+EXPOSE 8080
 
 # Start the app
 CMD [ "java", "-jar", "./app.jar" ]
