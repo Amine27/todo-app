@@ -23,9 +23,8 @@ COPY ./ .
 # Build the app
 RUN npm run build
 
-# Expose $PORT on container.
-# We use a varibale here as the port is something that can differ on the environment.
-EXPOSE $PORT
+# Expose port on container.
+EXPOSE 3000
 
 # Set host to localhost / the docker image
 ENV NUXT_HOST=0.0.0.0
