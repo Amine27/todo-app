@@ -1,5 +1,5 @@
 # Build stage
-FROM gradle:jdk11-alpine AS BUILD_STAGE
+FROM gradle:6.9-jdk11 AS BUILD_STAGE
 
 # Create an application directory
 RUN mkdir -p /app
