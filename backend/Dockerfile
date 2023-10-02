@@ -26,9 +26,8 @@ WORKDIR /app
 # Copy from previous build step to the current docker image
 COPY --from=BUILD_STAGE /app/build/libs/*.jar ./app.jar
 
-# Expose $PORT on container.
-# We use a varibale here as the port is something that can differ on the environment.
-EXPOSE $PORT
+# Expose port on container.
+EXPOSE 80
 
 # Start the app
 CMD [ "java", "-jar", "./app.jar" ]
