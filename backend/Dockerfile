@@ -8,7 +8,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Copy our project directory (locally) in the current directory of our docker image (/app)
-COPY ./backend . 
+COPY . . 
 
 # Start the build process
 RUN gradle build
@@ -25,7 +25,7 @@ WORKDIR /app
 
 # Copy from previous build step to the current directory of our docker image (/app)
 #COPY backend/build/libs/*.jar ./app.jar
-COPY --from=BUILD_STAGE /app/backend/build/libs/*.jar ./app.jar
+COPY --from=BUILD_STAGE /app/build/libs/*.jar ./app.jar
 
 # Expose $PORT on container.
 # We use a varibale here as the port is something that can differ on the environment.
