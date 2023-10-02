@@ -52,10 +52,6 @@ jobs:
         with:
           arguments: build
           build-root-directory: backend/
-      - uses: actions/upload-artifact@v3
-        with:
-          name: app
-          path: backend/build/libs
 
   test-backend:
     runs-on: ubuntu-latest
