@@ -30,10 +30,10 @@ jobs:
 
     steps:
       - name: Deploying Frontend...
-        uses: johnbeynon/render-deploy-action@v0.0.8
+        uses: bervProject/railway-deploy@0.1.2-beta
         with:
-          service-id: ${{ secrets.FRONTEND_SERVICE_ID }} # Can be found as part of the Deploy Hook
-          api-key: ${{ secrets.RENDER_API_KEY }} # Create your API key in Render Dashboard > Account Settings
+          service: ${{ secrets.FRONTEND_SERVICE_ID }}
+          railway_token: ${{ secrets.RAILWAY_TOKEN }}
 
   build-backend:
     runs-on: ubuntu-latest
@@ -77,8 +77,8 @@ jobs:
     needs: test-backend
 
     steps:
-      - name: Deploying Backtend...
-        uses: johnbeynon/render-deploy-action@v0.0.8
+      - name: Deploying Frontend...
+        uses: bervProject/railway-deploy@0.1.2-beta
         with:
-          service-id: ${{ secrets.BACKEND_SERVICE_ID }}
-          api-key: ${{ secrets.RENDER_API_KEY }}
+          service: ${{ secrets.BACKEND_SERVICE_ID }}
+          railway_token: ${{ secrets.RAILWAY_TOKEN }}
