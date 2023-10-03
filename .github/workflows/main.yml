@@ -32,7 +32,7 @@ jobs:
       - name: Deploying Frontend...
         uses: bervProject/railway-deploy@0.1.2-beta
         with:
-          service: ${{ secrets.FRONTEND_SERVICE_ID }}
+          service: "f2f989ba-b7a1-4fd4-bc8f-bb401b794eed"
           railway_token: ${{ secrets.RAILWAY_TOKEN }}
 
   build-backend:
@@ -80,5 +80,5 @@ jobs:
       - name: Deploying Frontend...
         uses: bervProject/railway-deploy@0.1.2-beta
         with:
-          service: ${{ secrets.BACKEND_SERVICE_ID }}
+          service: "edf919af-c1d4-460d-acc2-50ccc1264a5e"
           railway_token: ${{ secrets.RAILWAY_TOKEN }}
