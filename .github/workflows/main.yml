@@ -30,12 +30,8 @@ jobs:
 
     steps:
       - name: Deploying Frontend...
-        uses: actions/checkout@v4
-      - uses: themarkwill/coolify-actions@v0.0.3
-        with:
-          coolify-url: ${{ secrets.COOLIFY_URL }}
-          coolify-app-id: ${{ secrets.COOLIFY_FRONTEND_ID }}
-          coolify-token: ${{ secrets.COOLIFY_TOKEN }} 
+        run: | 
+         curl --request GET '${{ secrets.FRONTEND_WEBHOOK }}' --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}'
 
   build-backend:
     runs-on: ubuntu-latest
@@ -80,9 +76,5 @@ jobs:
 
     steps:
       - name: Deploying Backend...
-        uses: actions/checkout@v4
-      - uses: themarkwill/coolify-actions@v0.0.3
-        with:
-          coolify-url: ${{ secrets.COOLIFY_URL }}
-          coolify-app-id: ${{ secrets.COOLIFY_BACKEND_ID }}
-          coolify-token: ${{ secrets.COOLIFY_TOKEN }}
+        run: | 
+         curl --request GET '${{ secrets.BACKEND_WEBHOOK }}' --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}'
