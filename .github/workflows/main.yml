@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
       - uses: themarkwill/coolify-actions@v0.0.3
         with:
-          oolify-url: ${{ secrets.COOLIFY_URL }}
+          coolify-url: ${{ secrets.COOLIFY_URL }}
           coolify-app-id: ${{ secrets.COOLIFY_FRONTEND_ID }}
           coolify-token: ${{ secrets.COOLIFY_TOKEN }} 
 
@@ -83,6 +83,6 @@ jobs:
         uses: actions/checkout@v4
       - uses: themarkwill/coolify-actions@v0.0.3
         with:
-          oolify-url: ${{ secrets.COOLIFY_URL }}
+          coolify-url: ${{ secrets.COOLIFY_URL }}
           coolify-app-id: ${{ secrets.COOLIFY_BACKEND_ID }}
           coolify-token: ${{ secrets.COOLIFY_TOKEN }}
